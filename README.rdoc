@@ -2,7 +2,6 @@
 
 This is a skeleton Rails 3.1 application for demonstrating the Campaign Cash and Fech gems from The New York Times. To get started, clone this repository, then cd into the created directory and do:
 
-  * rvm use @campfin_demo
   * bundle install
   * rake db:create
   * rake db:migrate
