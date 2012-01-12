@@ -6,7 +6,7 @@ This is a skeleton Rails 3.1 application for demonstrating the Campaign Cash and
   * rake db:create
   * rake db:migrate
   * get a NYT Campaign Finance API key from http://developer.nytimes.com/
-  * set nyt_api_key in application_controller.rb
+  * set nyt_api_key in app/controllers/application_controller.rb
   * rails server
   * open http://localhost:3000/fec_filings/
   
