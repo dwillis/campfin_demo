@@ -1,0 +1,38 @@
+<h1>Today's Filings</h1>
+
+<table>
+  <tr>
+    <th>Committee name</th>
+    <th>Date coverage from</th>
+    <th>Date coverage to</th>
+    <th>Committee</th>
+    <th>Report title</th>
+    <th>Form type</th>
+    <th>Amended</th>
+    <th>Amended uri</th>
+    <th>Original filing</th>
+    <th>Paper</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fec_filings.each do |fec_filing| %>
+  <tr>
+    <td><%= fec_filing.committee_name %></td>
+    <td><%= fec_filing.date_coverage_from %></td>
+    <td><%= fec_filing.date_coverage_to %></td>
+    <td><%= fec_filing.committee %></td>
+    <td><%= link_to fec_filing.report_title, fec_filing.fec_uri %></td>
+    <td><%= fec_filing.form_type %></td>
+    <td><%= fec_filing.amended %></td>
+    <td><%= fec_filing.amended_uri %></td>
+    <td><%= link_to fec_filing.original_filing, fec_filing.original_uri if fec_filing.original_uri %></td>
+    <td><%= fec_filing.paper %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Fec filing', new_fec_filing_path %>

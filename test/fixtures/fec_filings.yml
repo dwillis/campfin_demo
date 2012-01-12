@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  committee_name: MyString
+  date_coverage_from: 2012-01-11
+  date_coverage_to: 2012-01-11
+  committee_id: MyString
+  report_title: MyString
+  fec_uri: MyString
+  form_type: MyString
+  amended: false
+  amended_uri: MyString
+  original_filing: false
+  original_uri: MyString
+  paper: false
+
+two:
+  committee_name: MyString
+  date_coverage_from: 2012-01-11
+  date_coverage_to: 2012-01-11
+  committee_id: MyString
+  report_title: MyString
+  fec_uri: MyString
+  form_type: MyString
+  amended: false
+  amended_uri: MyString
+  original_filing: false
+  original_uri: MyString
+  paper: false

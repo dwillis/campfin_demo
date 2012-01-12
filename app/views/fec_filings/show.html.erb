@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Committee name:</b>
+  <%= @fec_filing.committee_name %>
+</p>
+
+<p>
+  <b>Date coverage from:</b>
+  <%= @fec_filing.date_coverage_from %>
+</p>
+
+<p>
+  <b>Date coverage to:</b>
+  <%= @fec_filing.date_coverage_to %>
+</p>
+
+<p>
+  <b>Committee:</b>
+  <%= @fec_filing.committee_id %>
+</p>
+
+<p>
+  <b>Report title:</b>
+  <%= @fec_filing.report_title %>
+</p>
+
+<p>
+  <b>Fec uri:</b>
+  <%= @fec_filing.fec_uri %>
+</p>
+
+<p>
+  <b>Form type:</b>
+  <%= @fec_filing.form_type %>
+</p>
+
+<p>
+  <b>Amended:</b>
+  <%= @fec_filing.amended %>
+</p>
+
+<p>
+  <b>Amended uri:</b>
+  <%= @fec_filing.amended_uri %>
+</p>
+
+<p>
+  <b>Original filing:</b>
+  <%= @fec_filing.original_filing %>
+</p>
+
+<p>
+  <b>Original uri:</b>
+  <%= @fec_filing.original_uri %>
+</p>
+
+<p>
+  <b>Paper:</b>
+  <%= @fec_filing.paper %>
+</p>
+
+
+<%= link_to 'Edit', edit_fec_filing_path(@fec_filing) %> |
+<%= link_to 'Back', fec_filings_path %>

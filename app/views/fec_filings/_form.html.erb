@@ -1,0 +1,65 @@
+<%= form_for(@fec_filing) do |f| %>
+  <% if @fec_filing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fec_filing.errors.count, "error") %> prohibited this fec_filing from being saved:</h2>
+
+      <ul>
+      <% @fec_filing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :committee_name %><br />
+    <%= f.text_field :committee_name %>
+  </div>
+  <div class="field">
+    <%= f.label :date_coverage_from %><br />
+    <%= f.date_select :date_coverage_from %>
+  </div>
+  <div class="field">
+    <%= f.label :date_coverage_to %><br />
+    <%= f.date_select :date_coverage_to %>
+  </div>
+  <div class="field">
+    <%= f.label :committee_id %><br />
+    <%= f.text_field :committee_id %>
+  </div>
+  <div class="field">
+    <%= f.label :report_title %><br />
+    <%= f.text_field :report_title %>
+  </div>
+  <div class="field">
+    <%= f.label :fec_uri %><br />
+    <%= f.text_field :fec_uri %>
+  </div>
+  <div class="field">
+    <%= f.label :form_type %><br />
+    <%= f.text_field :form_type %>
+  </div>
+  <div class="field">
+    <%= f.label :amended %><br />
+    <%= f.check_box :amended %>
+  </div>
+  <div class="field">
+    <%= f.label :amended_uri %><br />
+    <%= f.text_field :amended_uri %>
+  </div>
+  <div class="field">
+    <%= f.label :original_filing %><br />
+    <%= f.check_box :original_filing %>
+  </div>
+  <div class="field">
+    <%= f.label :original_uri %><br />
+    <%= f.text_field :original_uri %>
+  </div>
+  <div class="field">
+    <%= f.label :paper %><br />
+    <%= f.check_box :paper %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
