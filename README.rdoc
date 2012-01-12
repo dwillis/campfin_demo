@@ -1,0 +1,3 @@
+== Campaign Finance Demo
+
+This is a skeleton Rails 3.1 application for demonstrating the Campaign Cash and Fech gems from The New York Times.
