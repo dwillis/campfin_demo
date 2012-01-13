@@ -1,0 +1,51 @@
+<div class="container">
+<h1>Filing <%= @filing_id %></h1>
+
+<table class="zebra-striped">
+  <thead>
+    <tr>
+      <th>Form Type</th>
+      <th>Name</th>
+      <th>Report Code</th>
+      <th>Begin Date</th>
+      <th>End Date</th>
+      <th>Contributions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @summary[:form_type] %></td>
+      <td><%= @summary[:committee_name] %></td>
+      <td><%= @summary[:report_code] %></td>
+      <td><%= Date.strptime(@summary[:coverage_from_date].to_s, fmt='%Y%m%d') %></td>
+      <td><%= Date.strptime(@summary[:coverage_through_date].to_s, fmt='%Y%m%d') %></td>
+      <td><%= number_to_currency(@summary[:col_b_contributions_to_candidates]) %></td>
+    </tr>
+  </tbody>
+</table>
+<h3>Contributions</h3>
+<table class="zebra-striped">
+  <thead>
+    <tr>
+      <th>Recipient</th>
+      <th>State</th>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Election</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @contribs.each do |contrib| %>
+    <tr>
+      <td><%= contrib[:payee_organization_name] %></td>
+      <td><%= contrib[:beneficiary_candidate_state] %></td>
+      <td><%= contrib[:beneficiary_candidate_fec_id] %></td>
+      <td><%= Date.strptime(contrib[:expenditure_date].to_s, fmt='%Y%m%d') %></td>
+      <td><%= contrib[:election_code] %></td>
+      <td><%= number_to_currency(contrib[:expenditure_amount]) %></td>
+    </tr>
+    <% end %>
+  </tbody>  
+</table>
+<div>

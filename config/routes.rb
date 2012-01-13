@@ -1,5 +1,7 @@
 Cfdemo::Application.routes.draw do
   resources :fec_filings
+  
+  match 'fech/:id' => 'fec_filings#fech', :as => :fech
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

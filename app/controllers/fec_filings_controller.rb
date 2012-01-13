@@ -8,6 +8,14 @@ class FecFilingsController < ApplicationController
       format.json { render :json => @fec_filings }
     end
   end
+  
+  def fech
+    @filing_id = params[:id]
+    filing = Fech::Filing.new(@filing_id)
+    filing.download
+    @summary = filing.summary
+    @contribs = filing.rows_like(/^sb23/)
+  end
 
   # GET /fec_filings/1
   # GET /fec_filings/1.json
