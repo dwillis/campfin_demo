@@ -1,0 +1,28 @@
+<h1>Small Donations of Presidential Cands</h1>
+
+<table>
+
+<th>Name</th>
+<th>Total contributions</th>
+<th>Less than $200</th>
+<th>Percent</th>
+
+
+<% @details.each do |detail| %>
+  
+  <tr>
+    <td><%= detail.name %></td>
+    <td><%= number_to_currency(detail.total_contributions) %></td>
+    <td><%= number_to_currency(detail.contributions_less_than_200) %></td>
+
+    <% pctval = detail.contributions_less_than_200.to_f / detail.total_contributions.to_f %>
+    <td style='<%= "background-color:yellow;" if pctval > 0.25  %>'><%= pctval %></td>
+
+    
+  </tr>
+
+
+<% end %>
+
+
+</table>

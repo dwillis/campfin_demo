@@ -9,6 +9,12 @@ class FecFilingsController < ApplicationController
     end
   end
   
+  def grassroots
+    ids = President.summary.collect{|c| c.committee_id}
+    @details = ids.map{|id| President.detail(id, 2012)}
+  end
+  
+  
   def fech
     @filing_id = params[:id]
     filing = Fech::Filing.new(@filing_id)
