@@ -37,7 +37,7 @@ GEM
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
-    campaign_cash (2.0.1)
+    campaign_cash (2.0.2)
       json
     chunky_png (1.2.5)
     coffee-rails (3.1.1)
@@ -123,7 +123,7 @@ PLATFORMS
 
 DEPENDENCIES
   anjlab-bootstrap-rails
-  campaign_cash (>= 2.0.1)
+  campaign_cash (>= 2.0.2)
   coffee-rails
   compass
   fech
