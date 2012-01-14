@@ -1,6 +1,8 @@
 Cfdemo::Application.routes.draw do
   resources :fec_filings
   
+  match 'grassroots' => 'fec_filings#grassroots'
+  
   match 'fech/:id' => 'fec_filings#fech', :as => :fech
 
   # The priority is based upon order of creation:
