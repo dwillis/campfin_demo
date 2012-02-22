@@ -1,4 +1,4 @@
-<h1>Today's Filings</h1>
+<h1>Today's Amended Filings</h1>
 
 <table>
   <tr>
@@ -11,9 +11,6 @@
     <th>Amended</th>
     <th>Amended uri</th>
     <th>Original filing</th>
-    <th>Diff</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -28,7 +25,7 @@
     <td><%= fec_filing.amended %></td>
     <td><%= fec_filing.amended_uri %></td>
     <td><%= link_to fec_filing.original_filing, fec_filing.original_uri if fec_filing.original_uri %></td>
-    <td><%= link_to "Compare", filing_compare_path(fec_filing.original_filing, fec_filing.fec_uri.split('/').last.to_i) if fec_filing.original_filing %></td>
+    <td><button class="btn btn-inverse" href="<%= filing_compare_url(fec_filing.original_filing, fec_filing.fec_uri.split('/').last.to_i) if fec_filing.original_filing %>">Compare</button></td>
   </tr>
 <% end %>
 </table>
