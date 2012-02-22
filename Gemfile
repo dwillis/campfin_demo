@@ -6,6 +6,10 @@ gem 'fech', '>= 0.9.1'
 gem 'pg'
 gem 'coffee-rails'
 
+group :development do
+  gem 'sqlite3'
+end
+
 group :assets do
   gem 'jquery-rails', '>= 1.0.12'
   gem 'compass'
