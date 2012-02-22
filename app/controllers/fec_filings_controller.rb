@@ -1,7 +1,7 @@
 class FecFilingsController < ApplicationController
 
   def index
-    @fec_filings = Filing.today
+    @fec_filings = Filing.today.select{|f| f.form_type == 'F3' && !f.original_filing.nil?}
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,6 +12,19 @@ class FecFilingsController < ApplicationController
   def grassroots
     ids = President.summary.collect{|c| c.committee_id}
     @details = ids.map{|id| President.detail(id, 2012)}
+  end
+  
+  def compare
+    original = Fech::Filing.new(params[:original])
+    updated = Fech::Filing.new(params[:updated])
+    original.download
+    updated.download
+    @original_filing = params[:original]
+    @updated_filing = params[:updated]
+    @original = original.summary
+    @updated = updated.summary
+    raise ActiveRecord::NotFound if @original[:filer_committee_id_number] != @updated[:filer_committee_id_number]
+    @diff = @updated.diff(@original).keys.select{|k| k.to_s.first(4) == 'col_'}
   end
   
   

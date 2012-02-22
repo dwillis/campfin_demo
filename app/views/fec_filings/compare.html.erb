@@ -1,0 +1,52 @@
+<header class="jumbotron subhead">
+  <h3>Comparinator</h3>
+</header>
+  <div class='row'>
+    <div class='span5'>
+      <h4>Field</h4>
+        <table>
+        <% @diff.each do |field| %>
+        <tr>
+          <td><%= field %></td>
+        </tr>
+        <% end %>
+      </table>  
+      </div>
+       <div class='span4'>
+      <h4>Original - <%= @original_filing %></h4>
+      <table>
+      <% @diff.each do |field| %>
+      <tr>
+        <td><%= number_to_currency(@original[field]) %></td>
+      </tr>
+      <% end %>
+    </table>
+    </div>
+  
+    <div class='span4'>
+        <h4>Amendment - <%= @updated_filing %></h4>
+        <table>
+        <% @diff.each do |field| %>
+        <tr>
+          <td><%= number_to_currency(@updated[field]) %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+    
+    <div class='span2'>
+        <h4>Change</h4>
+        <table>
+        <% @diff.each do |field| %>
+        <tr>
+          <td><%= number_to_currency(@updated[field].to_f-@original[field].to_f) %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+    
+  </div>
+  
+  
+  
+</div>

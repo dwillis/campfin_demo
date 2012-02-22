@@ -9,19 +9,21 @@
 </head>
 <body>
 
-  <div class="topbar">
+  <div class="topbar topbar-fixed-top">
       <div class="topbar-inner %>">
           <div class="container">
               <a class="brand" href="#">Campaign Finance Demo</a>
               <ul class="nav">
                   <li class="active"><a href="<%= fec_filings_url %>">Filings</a></li>
               </ul>
-              
           </div>
       </div>
   </div>
-
-<%= yield %>
-
+  
+  <div class="container"><div style='padding:40px'></div>
+    <%= yield %>
+  </div>
+  
+  
 </body>
 </html>

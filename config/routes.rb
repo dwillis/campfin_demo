@@ -4,6 +4,8 @@ Cfdemo::Application.routes.draw do
   match 'grassroots' => 'fec_filings#grassroots'
   
   match 'fech/:id' => 'fec_filings#fech', :as => :fech
+  
+  match 'fec_filings/:original/:updated' => 'fec_filings#compare', :as => :filing_compare
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

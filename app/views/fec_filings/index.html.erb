@@ -11,7 +11,7 @@
     <th>Amended</th>
     <th>Amended uri</th>
     <th>Original filing</th>
-    <th>Paper</th>
+    <th>Diff</th>
     <th></th>
     <th></th>
     <th></th>
@@ -28,7 +28,7 @@
     <td><%= fec_filing.amended %></td>
     <td><%= fec_filing.amended_uri %></td>
     <td><%= link_to fec_filing.original_filing, fec_filing.original_uri if fec_filing.original_uri %></td>
-    <td><%= fec_filing.paper %></td>
+    <td><%= link_to "Compare", filing_compare_path(fec_filing.original_filing, fec_filing.fec_uri.split('/').last.to_i) if fec_filing.original_filing %></td>
   </tr>
 <% end %>
 </table>
