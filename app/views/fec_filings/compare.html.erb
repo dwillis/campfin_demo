@@ -1,9 +1,8 @@
 <header class="jumbotron subhead">
   <h3>Comparinator</h3>
+  <p><%= "This filing has changed/new Schedule A records" unless @contribs_diff.empty? %> | <%= "This filing has changed/new Schedule B records" unless @expend_diff.empty? %></p>
 </header>
-  <div class='row'>
-    <%= "This filing has changed/new Schedule A records" unless @contribs_diff.empty? %>
-    
+  <div class='row'>    
     <div class='span5'>
       <h4>Field</h4>
         <table>
@@ -15,22 +14,22 @@
       </table>  
       </div>
        <div class='span4'>
-      <h4>Original - <%= @original_filing %></h4>
+      <h4>Original - <%= @original.filing_id %></h4>
       <table>
       <% @diff.each do |field| %>
       <tr>
-        <td><%= number_to_currency(@original[field]) %></td>
+        <td><%= number_to_currency(@original.summary[field]) %></td>
       </tr>
       <% end %>
     </table>
     </div>
   
     <div class='span4'>
-        <h4>Amendment - <%= @updated_filing %></h4>
+        <h4>Amendment - <%= @updated.filing_id %></h4>
         <table>
         <% @diff.each do |field| %>
         <tr>
-          <td><%= number_to_currency(@updated[field]) %></td>
+          <td><%= number_to_currency(@updated.summary[field]) %></td>
         </tr>
         <% end %>
       </table>
@@ -41,7 +40,7 @@
         <table>
         <% @diff.each do |field| %>
         <tr>
-          <td><%= number_to_currency(@updated[field].to_f-@original[field].to_f) %></td>
+          <td><%= number_to_currency(@updated.summary[field].to_f-@original.summary[field].to_f) %></td>
         </tr>
         <% end %>
       </table>
