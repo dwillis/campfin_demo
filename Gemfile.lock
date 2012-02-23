@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/NYTimes/Fech.git
+  revision: 7ff5cc6adca3fae33bc7c8256c5998e4a1e6bd47
+  specs:
+    fech (0.9.1)
+      fastercsv
+      people
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -55,9 +63,6 @@ GEM
     execjs (1.2.13)
       multi_json (~> 1.0)
     fastercsv (1.5.4)
-    fech (0.9.1)
-      fastercsv
-      people
     fssm (0.2.8.1)
     hike (1.2.1)
     i18n (0.6.0)
@@ -130,7 +135,7 @@ DEPENDENCIES
   campaign_cash (>= 2.0.3)
   coffee-rails
   compass
-  fech (>= 0.9.1)
+  fech!
   jquery-rails (>= 1.0.12)
   pg
   rails (= 3.1.0)
