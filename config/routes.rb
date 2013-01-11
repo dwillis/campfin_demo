@@ -1,4 +1,7 @@
 Cfdemo::Application.routes.draw do
+  
+  root :to => 'fec_filings#index'
+  
   resources :fec_filings
   
   match 'grassroots' => 'fec_filings#grassroots'

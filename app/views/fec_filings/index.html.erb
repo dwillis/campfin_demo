@@ -1,19 +1,16 @@
-<h1>Today's Filings</h1>
+<h1>Today's Amended Filings</h1>
 
 <table>
   <tr>
-    <th>Committee name</th>
+    <th>ID</th>
+    <th>Committee</th>
     <th>Date coverage from</th>
     <th>Date coverage to</th>
-    <th>Committee</th>
     <th>Report title</th>
     <th>Form type</th>
     <th>Amended</th>
     <th>Amended uri</th>
     <th>Original filing</th>
-    <th>Diff</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -28,7 +25,7 @@
     <td><%= fec_filing.amended %></td>
     <td><%= fec_filing.amended_uri %></td>
     <td><%= link_to fec_filing.original_filing, fec_filing.original_uri if fec_filing.original_uri %></td>
-    <td><%= link_to "Compare", filing_compare_path(fec_filing.original_filing, fec_filing.fec_uri.split('/').last.to_i) if fec_filing.original_filing %></td>
+    <td><%= button_to "Compare", filing_compare_path(fec_filing.original_filing, fec_filing.fec_uri.split('/').last.to_i), :class => "btn btn-inverse" %></td>
   </tr>
 <% end %>
 </table>

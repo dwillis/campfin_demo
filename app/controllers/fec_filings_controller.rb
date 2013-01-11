@@ -15,16 +15,14 @@ class FecFilingsController < ApplicationController
   end
   
   def compare
-    original = Fech::Filing.new(params[:original])
-    updated = Fech::Filing.new(params[:updated])
-    original.download
-    updated.download
-    @original_filing = params[:original]
-    @updated_filing = params[:updated]
-    @original = original.summary
-    @updated = updated.summary
-    raise ActiveRecord::NotFound if @original[:filer_committee_id_number] != @updated[:filer_committee_id_number]
-    @diff = @updated.diff(@original).keys.select{|k| k.to_s.first(4) == 'col_'}
+    @updated = Fech::Filing.new(params[:updated])
+    @updated.download
+    @original = Fech::Filing.new(params[:original])
+    @original.download
+    compare = Fech::Comparison.new(@updated, @original)
+    @diff = compare.summary.keys.select{|k| k.to_s.first(4) == 'col_'}
+    @contribs_diff = compare.schedule(:sa)
+    @expend_diff = compare.schedule(:sb)
   end
   
   
