@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.1.10'
 gem 'campaign_cash', '>= 2.0.3'
-gem 'fech', '>= 0.9.1'
+gem 'fech', '>= 1.0.1'
 gem 'pg'
 gem 'coffee-rails'
 
