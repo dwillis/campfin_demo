@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Campaign Finance Demo</title>
+  <title>The Comparinator</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js", :defer => true, :async => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
   <div class="topbar topbar-fixed-top">
       <div class="topbar-inner %>">
           <div class="container">
-              <a class="brand" href="#">Campaign Finance Demo</a>
-              <ul class="nav">
-                  <li class="active"><a href="<%= fec_filings_url %>">Filings</a></li>
-              </ul>
+              <h3><a class="brand" href="<%= fec_filings_url %>">The Comparinator</a></h3>
           </div>
       </div>
   </div>
   
-  <div class="container"><div style='padding:40px'></div>
+  <div class="container">
     <%= yield %>
   </div>
   

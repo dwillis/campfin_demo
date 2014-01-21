@@ -1,11 +1,11 @@
 <header class="jumbotron subhead">
-  <h3>Comparinator</h3>
+  <h3>Comparing filings for <%= @updated.summary.committee_name %></h3>
   <p><%= "This filing has changed/new Schedule A records" unless @contribs_diff.empty? %> | <%= "This filing has changed/new Schedule B records" unless @expend_diff.empty? %></p>
 </header>
   <div class='row'>    
-    <div class='span5'>
+    <div class='col-md-3'>
       <h4>Field</h4>
-        <table>
+        <table class="table table-condensed">
         <% @diff.each do |field| %>
         <tr>
           <td><%= field %></td>
@@ -13,9 +13,9 @@
         <% end %>
       </table>  
       </div>
-       <div class='span4'>
-      <h4>Original - <%= @original.filing_id %></h4>
-      <table>
+       <div class='col-md-3'>
+      <h4>Original - <%= link_to @original.filing_id, "http://docquery.fec.gov/cgi-bin/dcdev/forms/#{@original.summary.filer_committee_id_number}/#{@original_id}/" %></h4>
+     <table class="table table-condensed">
       <% @diff.each do |field| %>
       <tr>
         <td><%= number_to_currency(@original.summary[field]) %></td>
@@ -24,9 +24,9 @@
     </table>
     </div>
   
-    <div class='span4'>
-        <h4>Amendment - <%= @updated.filing_id %></h4>
-        <table>
+    <div class='col-md-3'>
+        <h4>Amendment - <%= link_to @updated.filing_id, "http://docquery.fec.gov/cgi-bin/dcdev/forms/#{@updated.summary.filer_committee_id_number}/#{@updated_id}/" %></h4>
+        <table class="table table-condensed">
         <% @diff.each do |field| %>
         <tr>
           <td><%= number_to_currency(@updated.summary[field]) %></td>
@@ -35,9 +35,9 @@
       </table>
     </div>
     
-    <div class='span2'>
+    <div class='col-md-3'>
         <h4>Change</h4>
-        <table>
+        <table class="table table-condensed">
         <% @diff.each do |field| %>
         <tr>
           <td><%= number_to_currency(@updated.summary[field].to_f-@original.summary[field].to_f) %></td>

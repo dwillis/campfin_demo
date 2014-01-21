@@ -15,10 +15,10 @@ class FecFilingsController < ApplicationController
   end
   
   def compare
-    @updated = Fech::Filing.new(params[:updated])
-    @updated.download
-    @original = Fech::Filing.new(params[:original])
-    @original.download
+    @updated_id = params[:updated]
+    @updated = Fech::Filing.new(params[:updated]).download
+    @original_id = params[:original]
+    @original = Fech::Filing.new(params[:original]).download
     compare = Fech::Comparison.new(@updated, @original)
     @diff = compare.summary.keys.select{|k| k.to_s.first(4) == 'col_'}
     @contribs_diff = compare.schedule(:sa)
